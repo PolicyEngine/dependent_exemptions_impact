@@ -28,8 +28,7 @@ def create_situation(employment_income, is_married, state_code, children_info):
     for i, (age, _) in enumerate(children_info):
         child_id = f"child_{i}"
         situation["people"][child_id] = {
-            "age": {CURRENT_YEAR: age},
-            "employment_income": {CURRENT_YEAR: 0},
+            "age": {CURRENT_YEAR: age} 
         }
         members.append(child_id)
 
@@ -45,6 +44,18 @@ def create_situation(employment_income, is_married, state_code, children_info):
                     "state_name": {CURRENT_YEAR: state_code},
                 }
             },
+
+            "axes": [
+                [
+                    {
+                        "name": "earnings variation",
+                        "count": 1001,
+                        "min": 0,
+                        "max": employment_income,
+                        "period": CURRENT_YEAR,
+                    }
+                ]
+            ],
         }
     )
 
