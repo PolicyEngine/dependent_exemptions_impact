@@ -16,7 +16,6 @@ is_married, state_code, income, children_info = render_all_inputs()
 if st.button("Calculate Reform Impact", type="primary"):
     # Calculate reform impact
     situation_params = {
-        "employment_income": income,
         "is_married": is_married,
         "state_code": state_code,
         "children_info": children_info,
